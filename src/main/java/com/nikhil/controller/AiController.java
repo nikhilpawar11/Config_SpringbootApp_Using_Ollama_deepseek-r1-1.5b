@@ -22,7 +22,7 @@ public class AiController {
 		this.aiService = aiService;
 	}
 
-	@GetMapping("/askToAi")
+	@GetMapping("/chatBot")
 	public ResponseEntity<String> askToAi(
 			@RequestParam(value = "question", required = false, defaultValue = "How are you ?") String question
 			){
@@ -34,7 +34,7 @@ public class AiController {
 	}
 
 	// so we want to get data in the form of chunks so for that we use reactive programming using FLUX
-	@GetMapping("/streamAi")
+	@GetMapping("/streamChatBot")
 	public ResponseEntity<Flux<String>> streamAi(
 			@RequestParam(value = "question", required = false, defaultValue = "How are you ?") String question
 			){
@@ -44,7 +44,7 @@ public class AiController {
 		return new ResponseEntity<>(streamResponse, HttpStatus.OK);
 	}
 	
-	@GetMapping("/askCricketInfo")
+	@GetMapping("/cricketBot")
 	public ResponseEntity<CricketResponse> askCricketInfo(
 			@RequestParam(value = "inputText", required = true) String inputText
 			){
