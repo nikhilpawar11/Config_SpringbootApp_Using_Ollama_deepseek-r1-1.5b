@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.nikhil.payload.CricketResponse;
 import com.nikhil.service.AiService;
 
 import reactor.core.publisher.Flux;
@@ -40,6 +42,17 @@ public class AiController {
 		Flux<String> streamResponse = aiService.streamResponse(question);
 
 		return new ResponseEntity<>(streamResponse, HttpStatus.OK);
+	}
+	
+	@GetMapping("/askCricketInfo")
+	public ResponseEntity<CricketResponse> askCricketInfo(
+			@RequestParam(value = "inputText", required = true) String inputText
+			){
+		
+		CricketResponse cricketResponse = aiService.generateCricketResponse(inputText);
+		
+		return new ResponseEntity<>(cricketResponse, HttpStatus.OK);
+		
 	}
 	
 }
