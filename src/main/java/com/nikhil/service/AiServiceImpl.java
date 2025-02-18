@@ -2,7 +2,6 @@ package com.nikhil.service;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Service;
-
 import reactor.core.publisher.Flux;
 
 @Service
@@ -15,9 +14,7 @@ public class AiServiceImpl implements AiService {
 		this.chatClient = builder.build();
 	}
 
-
-
-
+	
 	@Override
 	public String askAi(String question) {
 	

@@ -7,5 +7,5 @@ public interface AiService {
 	public String askAi(String question);
 	
 	public Flux<String> streamResponse(String question);
-
+	
 }

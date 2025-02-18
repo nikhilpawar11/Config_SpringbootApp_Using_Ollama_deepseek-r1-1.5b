@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.nikhil.service.AiService;
 
 import reactor.core.publisher.Flux;
@@ -42,4 +41,5 @@ public class AiController {
 
 		return new ResponseEntity<>(streamResponse, HttpStatus.OK);
 	}
+	
 }
