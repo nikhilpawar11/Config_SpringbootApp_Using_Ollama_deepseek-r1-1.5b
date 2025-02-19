@@ -2,10 +2,9 @@ package com.nikhil.service;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.stereotype.Service;
 
+import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nikhil.payload.CricketResponse;
 
@@ -21,7 +20,7 @@ public class AiServiceImpl implements AiService {
 		this.chatClient = builder.build();
 	}
 
-	
+
 	@Override
 	public String askAi(String question) {
 	
@@ -41,7 +40,7 @@ public class AiServiceImpl implements AiService {
 		
 		// Generate a prompt string where we instruct the AI to handle the question
         String promptString = "As a cricket expert, answer this question: " + inputText + ". " 
-            + "If the above question is not related to cricket, respond with a funny joke saying this question is out of context.";
+                + "If the above question is not related to cricket, respond with a funny joke saying this question is out of context.";
 		
 		String stringResponse = chatClient.prompt(promptString).call().content();
 		
